@@ -6,6 +6,7 @@
   <title>Techmetal</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
+    html { scroll-behavior: smooth; }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
@@ -392,12 +393,65 @@
       <span class="accent-line"></span>
       <h1 class="hero-title">Techmetal</h1>
       <p class="hero-sub">Forjamos el metal que sostiene tu mundo</p>
-      <a href="#" class="hero-cta">Ver más</a>
+      <a href="#quienes-somos" class="hero-cta">Ver más</a>
     </div>
     <div class="scroll-hint">
       <div class="scroll-mouse"></div>
       <span>Scroll</span>
     </div>
+  </section>
+
+  <!-- QUIENES SOMOS -->
+  <section id="quienes-somos" style="
+    background: #f0ebe3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem;
+    text-align: center;
+  ">
+    <h2 style="
+      font-family: 'Georgia', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: #3b2f2f;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    ">¿Quiénes somos?</h2>
+
+    <p style="
+      font-family: 'Georgia', serif;
+      font-size: clamp(.95rem, 1.8vw, 1.1rem);
+      color: #5a4a3a;
+      line-height: 2;
+      max-width: 540px;
+      font-weight: 400;
+    ">
+      Somos estudiantes de 3er año de la Escuela Técnica N°1, especializados en soldadura.<br>
+      Creamos <strong>CellBuddy</strong>, un soporte de celular hecho con varilla de hierro, soldado a mano.<br>
+      Este proyecto nació en la materia Procedimientos Técnicos, y busca unir la creatividad con el trabajo técnico real.<br>
+      Nos apasiona construir, diseñar y hacer que algo simple se convierta en algo útil y original.
+    </p>
+
+    <a href="#stats" style="
+      display: inline-block;
+      margin-top: 3.5rem;
+      padding: .75rem 2.5rem;
+      border: 1.5px solid #8a7060;
+      color: #5a4a3a;
+      font-family: 'Georgia', serif;
+      font-size: .85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background .3s, color .3s;
+      background: transparent;
+    "
+    onmouseover="this.style.background='#8a7060';this.style.color='#fff'"
+    onmouseout="this.style.background='transparent';this.style.color='#5a4a3a'"
+    >Ver más</a>
   </section>
 
   <!-- STATS -->
