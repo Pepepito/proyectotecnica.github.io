@@ -195,42 +195,67 @@
       line-height: 1.9; color: rgba(240,235,227,.85); font-style: italic;
     }
 
-    /* ── CONTACTO ── */
-    #contacto {
-      background: var(--beige);
-      align-items: center; justify-content: flex-start; text-align: center;
+    /* ── CONTACTO FINAL ── */
+    #contacto { background: #b8c9cc; align-items: center; justify-content: flex-start; }
+    #contacto .inner { max-width: 700px; padding: 5.5rem 1.4rem 3rem; width: 100%; margin: 0 auto; }
+
+    .contacto-header {
+      font-family: 'Barlow', sans-serif; font-size: .75rem; font-weight: 300;
+      letter-spacing: 2px; color: rgba(30,40,45,.6); margin-bottom: 1.8rem;
+      text-transform: uppercase;
     }
-    #contacto .inner { max-width: 480px; padding: 5.5rem 1.2rem 3rem; width: 100%; margin: 0 auto; }
-    #contacto h2 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.7rem, 6vw, 2.8rem);
-      font-weight: 600; color: #3b2f2f; margin-bottom: .5rem;
+
+    .contacto-grid { display: flex; flex-direction: column; gap: .9rem; margin-bottom: 2rem; }
+
+    .contacto-row {
+      display: flex; align-items: center; gap: 1rem;
     }
-    #contacto .sub { font-size: .88rem; color: var(--brown); margin-bottom: 2rem; font-weight: 300; letter-spacing: 1px; }
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    input, textarea {
-      width: 100%; padding: .8rem 1rem;
-      background: rgba(255,255,255,.65); border: 1px solid rgba(90,74,58,.2);
-      color: #3b2f2f; font-family: 'Barlow', sans-serif; font-size: .95rem;
-      outline: none; transition: border-color .3s;
+    .contacto-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
     }
-    input:focus, textarea:focus { border-color: var(--orange); background: #fff; }
-    input::placeholder, textarea::placeholder { color: rgba(90,74,58,.5); }
-    textarea { resize: vertical; min-height: 110px; }
-    button[type="submit"] {
-      padding: .8rem 2.5rem; background: transparent;
-      border: 1.5px solid var(--brown); color: var(--brown);
+    .contacto-pill {
+      background: #5b8fa3; color: #fff;
+      font-family: 'Barlow', sans-serif; font-size: clamp(.78rem, 3.2vw, .9rem);
+      font-weight: 400; letter-spacing: .5px;
+      padding: .45rem 1rem; border-radius: 3px;
+      text-decoration: none; transition: background .25s;
+    }
+    .contacto-pill:hover { background: #3d6f82; }
+
+    .gracias-block {
+      position: absolute; right: 2rem; top: 50%;
+      transform: translateY(-50%);
+      text-align: center; pointer-events: none;
+    }
+    .gracias-text {
+      font-family: 'Lora', serif; font-size: clamp(1.3rem, 5vw, 2rem);
+      font-style: italic; color: #3b4a50; line-height: 1.3;
+    }
+    .gracias-heart { font-size: clamp(2rem, 8vw, 3.5rem); margin-top: .4rem; display: block; }
+
+    .contacto-wrap { position: relative; }
+
+    .btn-inicio {
+      display: inline-block; margin-top: 1.5rem; padding: .75rem 2.2rem;
+      border: 1.5px solid #3b4a50; color: #3b4a50;
       font-family: 'Barlow', sans-serif; font-size: .78rem;
-      letter-spacing: 3px; text-transform: uppercase; cursor: pointer;
+      letter-spacing: 3px; text-transform: uppercase;
+      background: transparent; cursor: pointer;
       position: relative; overflow: hidden; transition: color .3s, border-color .3s;
-      align-self: center;
     }
-    button[type="submit"]::before {
-      content: ''; position: absolute; inset: 0; background: var(--orange);
+    .btn-inicio::before {
+      content: ''; position: absolute; inset: 0; background: #3b4a50;
       transform: scaleX(0); transform-origin: left; transition: transform .35s ease; z-index: -1;
     }
-    button[type="submit"]:hover { color: #fff; border-color: var(--orange); }
-    button[type="submit"]:hover::before { transform: scaleX(1); }
+    .btn-inicio:hover { color: #fff; }
+    .btn-inicio:hover::before { transform: scaleX(1); }
+
+    @media (max-width: 600px) {
+      .gracias-block { position: static; transform: none; text-align: center; margin-top: 1.5rem; }
+      .contacto-wrap { display: flex; flex-direction: column; }
+    }
 
     /* ── VER MAS BUTTON ── */
     .btn {
@@ -467,23 +492,55 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
+  <!-- CONTACTO FINAL -->
   <section class="section" id="contacto">
     <div class="inner">
-      <p class="anim section-tag">Hablemos</p>
-      <h2 class="anim">Contacto</h2>
-      <p class="anim sub">¿Querés saber más o hacer un pedido?</p>
-      <form class="anim" onsubmit="return false">
-        <input type="text" placeholder="Tu nombre"/>
-        <input type="email" placeholder="Tu correo electrónico"/>
-        <textarea placeholder="Tu mensaje..."></textarea>
-        <button type="submit">Enviar mensaje</button>
-      </form>
+      <p class="anim contacto-header">Inicio / Contacto</p>
+
+      <div class="anim contacto-wrap">
+        <div class="contacto-grid">
+
+          <div class="contacto-row">
+            <div class="contacto-icon">📱</div>
+            <a class="contacto-pill" href="tel:47126983">4712– 6983</a>
+          </div>
+
+          <div class="contacto-row">
+            <div class="contacto-icon">📸</div>
+            <a class="contacto-pill" href="https://instagram.com/_TechMetal.tecn1" target="_blank">@_TechMetal.tecn1</a>
+          </div>
+
+          <div class="contacto-row">
+            <div class="contacto-icon">✉️</div>
+            <a class="contacto-pill" href="mailto:eest1tresdefebrero@abc.gob.ar">eest1tresdefebrero@abc.gob.ar</a>
+          </div>
+
+          <div class="contacto-row">
+            <div class="contacto-icon">📍</div>
+            <a class="contacto-pill" href="#" target="_blank">Ubicación</a>
+          </div>
+
+          <div class="contacto-row">
+            <div class="contacto-icon">📘</div>
+            <a class="contacto-pill" href="#" target="_blank">Escuela de Educación Secundaria Técnica N°1 "Manuel Belgrano"</a>
+          </div>
+
+        </div>
+
+        <div class="gracias-block">
+          <div class="gracias-text">Gracias por ver</div>
+          <span class="gracias-heart">🩶</span>
+        </div>
+      </div>
+
+      <div>
+        <button class="anim btn-inicio" onclick="goTo('hero')">← Volver al inicio</button>
+      </div>
     </div>
   </section>
 
   <script>
-    const navStyle = { hero:'dark', quienes:'light', quees:'dark2', proceso:'light', contacto:'light' };
+    const navStyle = { hero:'dark', quienes:'light', quees:'dark2', proceso:'light', contacto:'dark2' };
     const navbar = document.getElementById('navbar');
 
     function goTo(id) {
