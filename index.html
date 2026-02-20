@@ -259,6 +259,38 @@
     .section.active .anim:nth-child(5) { animation-delay: .7s; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
+    /* ── PROCESO ── */
+    #proceso { background: #f7f3ee; justify-content: flex-start; }
+    #proceso .inner { max-width: 860px; margin: 0 auto; padding: 5.5rem 1.4rem 3rem; width: 100%; }
+    #proceso h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.5rem, 5vw, 2.2rem);
+      font-weight: 600; color: #3b2f2f; text-align: center;
+      margin-bottom: 2rem; padding-bottom: .8rem;
+      border-bottom: 2px solid rgba(90,74,58,.15);
+    }
+    .proceso-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; }
+    .paso {
+      background: rgba(255,255,255,.7); border: 1px solid rgba(90,74,58,.1);
+      border-left: 3px solid var(--orange); padding: 1rem 1.1rem;
+    }
+    .paso-title {
+      font-family: 'Barlow', sans-serif; font-weight: 600;
+      font-size: clamp(.78rem, 3vw, .9rem); color: #3b2f2f;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: .5rem;
+    }
+    .paso ul { list-style: none; padding: 0; }
+    .paso ul li {
+      font-family: 'Lora', serif; font-size: clamp(.74rem, 3vw, .86rem);
+      line-height: 1.75; color: var(--brown);
+      padding-left: 1rem; position: relative;
+    }
+    .paso ul li::before { content: '·'; position: absolute; left: 0; color: var(--orange); font-size: 1.2rem; line-height: 1.4; }
+    .paso ul li.sub {
+      padding-left: 1.8rem; font-size: clamp(.7rem, 2.8vw, .8rem); color: #7a6a5a;
+    }
+    .paso ul li.sub::before { content: '○'; font-size: .65rem; top: .25rem; }
+    #proceso .btn-wrap { text-align: center; margin-top: 2rem; }
+
     /* ── MOBILE ── */
     @media (max-width: 600px) {
       nav { padding: .9rem 1.2rem; }
@@ -267,11 +299,12 @@
 
       #quienes .inner,
       #quees .inner,
+      #proceso .inner,
       #contacto .inner { padding-top: 5rem; }
 
+      .proceso-grid { grid-template-columns: 1fr; gap: 1rem; }
       .top-grid  { grid-template-columns: 1fr; gap: 1.5rem; }
       .bottom-grid { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.2rem; }
-      /* on mobile show text before image in bottom-grid */
       .bottom-grid p { order: -1; }
     }
   </style>
@@ -285,6 +318,7 @@
       <li><button onclick="goTo('hero')"     id="nav-hero">Inicio</button></li>
       <li><button onclick="goTo('quienes')"  id="nav-quienes">Nosotros</button></li>
       <li><button onclick="goTo('quees')"    id="nav-quees">¿Qué es?</button></li>
+      <li><button onclick="goTo('proceso')"  id="nav-proceso">Proceso</button></li>
       <li><button onclick="goTo('contacto')" id="nav-contacto">Contacto</button></li>
     </ul>
     <button class="hamburger" onclick="toggleDrawer()" aria-label="Menú">
@@ -298,6 +332,7 @@
     <button onclick="goTo('hero');    toggleDrawer()">Inicio</button>
     <button onclick="goTo('quienes');toggleDrawer()">Nosotros</button>
     <button onclick="goTo('quees');  toggleDrawer()">¿Qué es?</button>
+    <button onclick="goTo('proceso');toggleDrawer()">Proceso</button>
     <button onclick="goTo('contacto');toggleDrawer()">Contacto</button>
   </div>
 
@@ -342,7 +377,92 @@
         <p>Cada pieza está hecha a mano con varilla de hierro reciclada, manteniendo medidas estándar pero con detalles únicos que le dan un toque especial.</p>
       </div>
       <div style="text-align:center">
-        <button class="anim btn btn-white" onclick="goTo('contacto')">Ver más</button>
+        <button class="anim btn btn-white" onclick="goTo('proceso')">Ver más</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO DE FABRICACION -->
+  <section class="section" id="proceso">
+    <div class="inner">
+      <p class="anim section-tag">Cómo lo hacemos</p>
+      <h2 class="anim">Proceso de Fabricación</h2>
+      <div class="anim proceso-grid">
+
+        <div class="paso">
+          <div class="paso-title">1. Selección del material</div>
+          <ul>
+            <li>Varilla de acero al carbono Ø 4–6 mm (según rigidez requerida).</li>
+            <li>Planchuela o chapa fina (1–2 mm) para la plataforma porta-celular.</li>
+          </ul>
+        </div>
+
+        <div class="paso">
+          <div class="paso-title">4. Ensamble y soldadura</div>
+          <ul>
+            <li>Fijación de componentes mediante soldadura por arco o MIG.</li>
+            <li>Soldadura de:
+              <ul>
+                <li class="sub">Unión piernas-torso.</li>
+                <li class="sub">Cabeza esférica (tuerca, bolilla o esfera torneada).</li>
+                <li class="sub">Base porta-celular a la estructura.</li>
+              </ul>
+            </li>
+            <li>Limpieza de cordones con amoladora a lima.</li>
+          </ul>
+        </div>
+
+        <div class="paso">
+          <div class="paso-title">2. Corte de materia prima</div>
+          <ul>
+            <li>Corte de varilla en tramos según diseño del muñequito:
+              <ul>
+                <li class="sub">Secciones para piernas, torso, brazos y soporte posterior.</li>
+              </ul>
+            </li>
+            <li>Corte de chapa para la base inclinada.</li>
+          </ul>
+        </div>
+
+        <div class="paso">
+          <div class="paso-title">5. Pulido y acabado</div>
+          <ul>
+            <li>Desbaste general para eliminar rebabas.</li>
+            <li>Pulido con disco flap o cepillo metálico.</li>
+            <li>Opcional:
+              <ul>
+                <li class="sub">Barniz transparente para evitar corrosión.</li>
+                <li class="sub">Pintura epoxi para acabado estético.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="paso">
+          <div class="paso-title">3. Conformado y doblado</div>
+          <ul>
+            <li>Doblado en frío o con calor localizado (soplete) para lograr:
+              <ul>
+                <li class="sub">Curvatura de piernas y postura del cuerpo.</li>
+                <li class="sub">Ángulo del torso y soporte posterior.</li>
+                <li class="sub">Forma del marco o soporte frontal para el celular.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="paso">
+          <div class="paso-title">6. Control final</div>
+          <ul>
+            <li>Verificación de estabilidad del soporte.</li>
+            <li>Comprobación del ángulo correcto para visualización.</li>
+            <li>Prueba con distintos tamaños de teléfono.</li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="btn-wrap">
+        <button class="anim btn btn-dark" onclick="goTo('contacto')">Ver más</button>
       </div>
     </div>
   </section>
@@ -363,7 +483,7 @@
   </section>
 
   <script>
-    const navStyle = { hero:'dark', quienes:'light', quees:'dark2', contacto:'light' };
+    const navStyle = { hero:'dark', quienes:'light', quees:'dark2', proceso:'light', contacto:'light' };
     const navbar = document.getElementById('navbar');
 
     function goTo(id) {
